@@ -12,7 +12,10 @@ class Thermostat{
 
   down = function(degrees){
     this.temp -= degrees;
-    return this.temp
-  }
+    if(this.temp < 10) { 
+      this.temp = 10
+      return 'the minimum temperature is 10 degrees'
+    };
+  };
   
 };

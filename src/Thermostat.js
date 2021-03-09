@@ -1,13 +1,18 @@
 "use strict";
 
 class Thermostat{
+  constructor(){
+    this.temp = 20;
+  };
 
-// constructor(temp){
-//   this.temp() = 20;
-// }
+  up = function(degrees){
+    this.temp += degrees;
+    return this.temp
+  };
 
-temp(degrees = 20){
-  return degrees;
-}
-
+  down = function(degrees){
+    this.temp -= degrees;
+    return this.temp
+  }
+  
 };

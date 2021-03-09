@@ -35,4 +35,16 @@ describe("Thermostat", function() {
     thermostat.up(20)
     expect(thermostat.temp).toEqual(25)
   });
+
+  it('has a max of 32 degrees', function(){
+    thermostat.powerSavingSwitch()
+    thermostat.up(25)
+    expect(thermostat.temp).toEqual(32)
+  });
+
+  it('has a reset function which resets the temp to 20', function(){
+    thermostat.reset
+    expect(thermostat.temp).toEqual(20)
+  });
+
 });

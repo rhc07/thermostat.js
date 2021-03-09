@@ -10,13 +10,19 @@ class Thermostat{
     this.temp += degrees;
     if(this.powerSaving === true && this.temp > 25){
       this.temp = 25
-      return 'the maximum temperature is 25 whilst in power saving mode'
+      return 'the maximum temperature is 25 degrees whilst in power saving mode'
     } 
-    else { return this.temp 
+    else if(this.powerSaving === false && this.temp > 32){
+      this.temp = 32
+      return 'the maximum temperature is 32 degrees'
     }
-   
+    else return this.temp 
     
   };
+
+  powerSavingSwitch = function(){
+    this.powerSaving === true ? this.powerSaving = false : this.powerSaving = true
+  }
 
   down = function(degrees){
     this.temp -= degrees;
@@ -26,5 +32,9 @@ class Thermostat{
     };
 
   };
+
+  reset = function(){
+    return this.temp = 20
+  }
   
 };

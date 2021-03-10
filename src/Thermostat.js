@@ -1,6 +1,7 @@
 "use strict";
 
 class Thermostat{
+
   constructor(){
     this.temp = 20;
     this.powerSaving = true;
@@ -11,13 +12,13 @@ class Thermostat{
     if(this.powerSaving === true && this.temp > 25){
       this.temp = 25;
       return 'the maximum temperature is 25 degrees whilst in power saving mode';
-    } 
+    }
     else if(this.powerSaving === false && this.temp > 32){
       this.temp = 32
       return 'the maximum temperature is 32 degrees';
     }
     else return this.temp;
-    
+
   };
 
   powerSavingSwitch = function(){
@@ -26,7 +27,7 @@ class Thermostat{
 
   down = function(degrees){
     this.temp -= degrees;
-    if(this.temp < 10){ 
+    if(this.temp < 10){
       this.temp = 10;
       return 'the minimum temperature is 10 degrees';
     };
@@ -47,5 +48,5 @@ class Thermostat{
     else
     return 'high usage';
   }
-  
+
 };

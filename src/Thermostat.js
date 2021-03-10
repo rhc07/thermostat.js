@@ -4,25 +4,29 @@ class Thermostat{
 
   constructor(){
 
-    const MAXIMUM_TEMPERATURE_PS_ON = 32
-    const MINIMUM_TEMPERATURE_PS_ON = 25
+    this.MAXIMUM_TEMPERATURE_PSM = 32
+    this.MINIMUM_TEMPERATURE_PSM = 25
 
-    const MINIMUM_TEMPERATURE = 10
+    this.MINIMUM_TEMPERATURE = 10
 
     this.temp = 20;
     this.powerSaving = true;
   };
 
+  getCurrentTemperature = function() {
+    return this.temp;
+  };
+
   up = function(degrees = 1){
     this.temp += degrees;
 
-    if(this.powerSaving === true && this.temp > 25){
-      this.temp = 25;
+    if(this.powerSaving === true && this.temp > this.MINIMUM_TEMPERATURE_PSM){
+      this.temp = this.MINIMUM_TEMPERATURE_PSM;
       return 'the maximum temperature is 25 degrees whilst in power saving mode';
     }
 
-    else if(this.powerSaving === false && this.temp > 32){
-      this.temp = 32
+    else if(this.powerSaving === false && this.temp > this.MAXIMUM_TEMPERATURE_PSM){
+      this.temp = this.MAXIMUM_TEMPERATURE_PSM;
       return 'the maximum temperature is 32 degrees';
     }
 
@@ -37,8 +41,8 @@ class Thermostat{
   down = function(degrees = 1){
     this.temp -= degrees;
 
-    if(this.temp < 10){
-      this.temp = 10;
+    if(this.temp < this.MINIMUM_TEMPERATURE){
+      this.temp = this.MINIMUM_TEMPERATURE;
       return 'the minimum temperature is 10 degrees';
     }
 

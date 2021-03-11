@@ -3,6 +3,22 @@ $(document).ready(function() {
  var thermostat = new Thermostat();
  $('#temperature').text(thermostat.temp);
 
+ $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+   $('#city').text(data.name);
+   $('#current-temperature').text(data.main.temp);
+   $('#humidity').text(data.main.humidity);
+   $('#wind-speed').text(data.wind.speed);
+ })
+
+ $('#select-city').submit(function(event){
+   event.preventDefault();
+   var city = $('#current-city').val();
+   $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+     $('#current-temperature').text(data.main.temp);
+     $('#city').text(data.name);
+     $('#wind-speed').text(data.wind.speed);
+   });
+ });
 
 $('#temperature-up').on('click', function() {
   thermostat.up();

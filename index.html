@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset=“UTF-8”>
 
 <html>
   <head>
@@ -9,8 +10,18 @@
     <title>Thermostat:</title>
   </head>
   <body>
-    <section>
-      <h1 id="temperature"></h1>
+
+
+    <section id ="thermostat">
+      <h1> &#x1F321 Thermostat Temperature: <span id="temperature"></h1>
+      <h2>The current temperature in <span id="city"></span> is <span id="current-temperature"></span> degrees.</h2>
+      <h3>The humidity is: <span id="humidity"></span>%</h3>
+      <h3>The wind speed is: <span id="wind-speed"></span>mph</h3>
+
+      <form id="select-city">
+        <input id="current-city" type="text" placeholder="Enter a City"></input>
+        <input type="submit"></input>
+      </form>
       <p>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>

@@ -53,16 +53,16 @@ class Thermostat{
   }
 
   currentEnergyUsage = function(){
-    if(this.temp < 18){
-      return 'low usage';
+    if(this.temp <= 18){
+      return 'low-usage';
     }
 
     else if(this.temp > 18 && this.temp < 25){
-      return 'medium usage';
+      return 'medium-usage';
     }
 
     else
-    return 'high usage';
+    return 'high-usage';
   }
 
 };
